@@ -7,4 +7,12 @@
 
 plugins {
     id 'java'
+	id 'application'
+}
+
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'Main'
+    }
 }
