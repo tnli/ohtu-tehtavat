@@ -23,7 +23,8 @@ public class Main {
         Gson mapper = new Gson();
         Player[] players = mapper.fromJson(bodyText, Player[].class);
         
-        System.out.println("Players from FIN " + aikaleimamuoto.format(aikaleima));
+        System.out.println("Players from FIN " + aikaleimamuoto.format(aikaleima) +"\n");
+        ;
         for (Player player : players) {
             if (player.getNationality().equals("FIN")) {
                 System.out.println(player);
