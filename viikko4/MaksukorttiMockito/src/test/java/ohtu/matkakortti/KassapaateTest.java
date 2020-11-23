@@ -40,5 +40,21 @@ public class KassapaateTest {
         verify(kortti, times(1)).getSaldo();
         verify(kortti, times(0)).osta(anyInt());
     }
+
+    @Test
+    public void kortilleLadataanJosLadattavaSummaPositiivinen() {
+        when(kortti.getSaldo()).thenReturn(10);
+        kassa.lataa(kortti, 10);
+
+        verify(kortti, times(1)).lataa(10);
+    }
+
+    @Test
+    public void kortilleEiLadataJosLadattavaSummaNegatiivinen() {
+        when(kortti.getSaldo()).thenReturn(10);
+        kassa.lataa(kortti, -10);
+
+        verify(kortti, times(0)).lataa(anyInt());
+    }
       
 }
